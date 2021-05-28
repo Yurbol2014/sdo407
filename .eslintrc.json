@@ -19,7 +19,7 @@
    ],
    "rules": {
      
-
+		"no-unused-vars": ["error", { "caughtErrorsIgnorePattern": "^ignore" }],
       "react/jsx-uses-react": 1,
 		"react/jsx-uses-vars": "error",
 		"react/prop-types": "off"
