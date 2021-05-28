@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, NavLink, Route } from 'react-router-dom';
 import Profile from "./components/Profile"
 import './App.css';
-
+import Friends from "./components/Friends"
 
 const Messages = ()=>{
    return <h2>Эта   страница с сообщениями</h2>
@@ -14,11 +14,7 @@ const Settings = ()=>{
    
    
 };
-const Friends = ()=>{
-   return <h2>Друзья</h2>
-   
-   
-};
+
 const Menu = () =>{
    return(
    <div>
@@ -37,7 +33,8 @@ const Menu = () =>{
 
 };
 
-function App() {
+function App(props) {
+   console.log(props);
   return (
    <div className="container-fluid">
    <BrowserRouter>
@@ -50,10 +47,10 @@ function App() {
 
    <div className='col-sm-9'>
    
-   <Route path = '/profile' component={Profile} />
+   <Route path = '/profile' render={()=><Profile functions={props.functions.key_getUser}/>} />
    <Route path = '/messages' component={Messages} />
    <Route path = '/settings' component={Settings} />
-   <Route path = '/friends' component={Friends} />
+   <Route path = '/friends' render={()=><Friends functions={props.functions.key_getUsers}/>} />
    </div>
    </div>
    </BrowserRouter>
