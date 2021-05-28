@@ -1,28 +1,34 @@
 import React from 'react';
 
-const TableRow=()=>{
+const TableRow=(props)=>{
    return (<tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{props.index+1}</th>
+      <td>{props.name} {props.lastname}</td>
+    
     </tr>);
 }
 
 
 const Friends = (props)=>{
    let users =props.functions();
-   console.log(users);
+   let userCount = Object.keys(users).length;
+   //console.log(userCount);
+   let userRow=[];
+
+   for(let i=0; i<userCount; i++)
+   userRow.push(<TableRow index={i} key={i} name={users[i].name} lastname={users[i].lastname}/>)
+
    return <table className ="table">
    <thead>
      <tr>
        <th scope="col">#</th>
-       <th scope="col">Имя</th>
-       <th scope="col">Фамилия</th>
+       <th scope="col">Пользователь</th>
+       
        
      </tr>
    </thead>
    <tbody>
+      {userRow}
      </tbody>
    </table>
    
