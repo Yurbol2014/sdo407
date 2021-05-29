@@ -17,8 +17,9 @@ const users = {
 	8: { name: "Елизавета ", lastname: "Романова", id: 3 },
 	9: { name: "Елизавета ", lastname: "Захарова", id: 14 },
 };
-export function getUser(){
-   return user;
+export function getUser(userId) {
+	for (let i = 0; i < Object.keys(users).length; i++) if (users[i].id == userId) return users[i];
+	return user;
 }
 
 export function getUsers(){
