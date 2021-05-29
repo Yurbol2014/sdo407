@@ -21,10 +21,10 @@ const Menu = () =>{
    <div className="row">
      <div className="col-sm-3">
        <div className="nav flex-column nav-pills"aria-orientation="vertical">
-         <NavLink className="nav-link " to = "profile" >Профиль</NavLink>
-         <NavLink className="nav-link" to = "messages">Сообщение</NavLink>
-         <NavLink className="nav-link" to = "settings">Настройки</NavLink>
-         <NavLink className="nav-link" to = "friends" >Друзья</NavLink>
+         <NavLink className="nav-link " to = "/profile" >Профиль</NavLink>
+         <NavLink className="nav-link" to = "/messages">Сообщение</NavLink>
+         <NavLink className="nav-link" to = "/settings">Настройки</NavLink>
+         <NavLink className="nav-link" to = "/friends" >Друзья</NavLink>
        </div>
      </div>
      </div>
@@ -47,10 +47,10 @@ function App(props) {
 
    <div className='col-sm-9'>
    
-   <Route path = '/profile' render={()=><Profile functions={props.functions.key_getUser}/>} />
+   <Route path = '/profile' render={()=><Profile function={props.functions.key_getUser}/>} />
    <Route path = '/messages' component={Messages} />
    <Route path = '/settings' component={Settings} />
-   <Route path = '/friends' render={()=><Friends functions={props.functions.key_getUsers}/>} />
+   <Route path = '/friends' render={()=><Friends function={props.functions.key_getUsers}/>} />
    </div>
    </div>
    </BrowserRouter>
